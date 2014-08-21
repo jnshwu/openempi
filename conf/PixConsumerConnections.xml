@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!-- The PIX Consumer Connections for PIX Update Notification Transaction -->
+
+<Configuration>
+    <StandardConnection name="openempi-pix-consumer">
+        <!--The host name of the PIX Consumer-->
+        <HostName>localhost</HostName>
+        <!--The port for PIX Update Notification-->
+        <Port>3601</Port>
+        <Identifier name="SendingApplication">
+            <NamespaceId>PAT_IDENTITY_X_REF_MGR_MISYS</NamespaceId>
+        </Identifier>
+        <Identifier name="SendingFacility">
+            <NamespaceId>ALLSCRIPTS</NamespaceId>
+        </Identifier>
+        <Identifier name="ReceivingApplication">
+            <NamespaceId>EHR_MISYS</NamespaceId>
+        </Identifier>
+        <Identifier name="ReceivingFacility">
+            <NamespaceId>MISYS</NamespaceId>
+        </Identifier>
+
+        <!-- This property is for test purpose, which would not actually 
+             submit PIX Update Notification. It defaults to false. -->
+        <Property name="DoNotNotify" value="false" />
+
+   	    <IncludeFile name="PixPdqClientDomains.xml" />
+        
+    </StandardConnection>
+
+    <StandardConnection name="xds-registry-v2">
+        <!--The host name of the PIX Consumer-->
+        <HostName>localhost</HostName>
+        <!--The port for PIX Update Notification-->
+        <Port>3602</Port>
+        <Identifier name="SendingApplication">
+            <NamespaceId>PAT_IDENTITY_X_REF_MGR_MISYS</NamespaceId>
+        </Identifier>
+        <Identifier name="SendingFacility">
+            <NamespaceId>ALLSCRIPTS</NamespaceId>
+        </Identifier>
+        <Identifier name="ReceivingApplication">
+            <NamespaceId>EHR_MISYS</NamespaceId>
+        </Identifier>
+        <Identifier name="ReceivingFacility">
+            <NamespaceId>MISYS</NamespaceId>
+        </Identifier>
+
+        <!-- This property is for test purpose, which would not actually 
+             submit PIX Update Notification. It defaults to false. -->
+        <Property name="DoNotNotify" value="false" />
+        
+        <Property name="XDSAffinityDomainPatientIdetifier" value="XAD-PID" />
+
+   	    <IncludeFile name="PixPdqClientDomains.xml" />
+    </StandardConnection>
+   
+   
+    <StandardConnection name="pixV3ConsumerConnection">
+        <!--The host name of the PIX Consumer-->
+        <HostName>localhost</HostName>
+        <!--The port for PIX Update Notification-->
+        <Port>8080</Port>
+	<UrlPath>http://localhost:8080/openempi-admin/services/PIXConsumer_Port_Soap12</UrlPath>
+        <Identifier name="SendingApplication">
+            <UniversalId>1.3.6.1.4.1.21367.13.10.98</UniversalId>
+            <UniversalIdType>ISO</UniversalIdType>
+        </Identifier>
+        <Identifier name="SendingFacility">
+            <UniversalId>1.3.6.1.4.1.21367.13.50.106</UniversalId>
+            <UniversalIdType>ISO</UniversalIdType>
+        </Identifier>
+        <Identifier name="ReceivingApplication">
+            <UniversalId>2.16.840.1.113883.3.72.6.5.100.329</UniversalId>
+            <UniversalIdType>ISO</UniversalIdType>
+        </Identifier>
+        <Identifier name="ReceivingFacility">
+            <UniversalId>2.16.840.1.113883.3.72.6.1</UniversalId>
+            <UniversalIdType>ISO</UniversalIdType>
+        </Identifier>
+        <!-- This property is for test purpose, which would not actually 
+             submit PIX Update Notification. It defaults to false. -->
+        <Property name="DoNotNotify" value="false" />
+
+   	    <IncludeFile name="PixPdqClientDomains.xml" />        
+    </StandardConnection>
+</Configuration>

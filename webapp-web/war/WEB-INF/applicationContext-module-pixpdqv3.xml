@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:soap="http://cxf.apache.org/bindings/soap"
+    xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+	http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd
+	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+	http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="ignoreResourceNotFound" value="false" />
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+	
+	<jaxws:endpoint 
+	  id="pixManagerV3" 
+	  implementor="#pixManagerServicev3"
+	  address="/PIXManager_Port_Soap12">
+	  <jaxws:binding>
+	     <soap:soapBinding version="1.2" mtomEnabled="false"/>
+      </jaxws:binding>
+      <jaxws:features>
+      	 <wsa:addressing xmlns:wsa="http://cxf.apache.org/ws/addressing"/>
+	  </jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxws:endpoint 
+	  id="pixConsumerV3" 
+	  implementor="#pixConsumerServicev3" 
+	  address="/PIXConsumer_Port_Soap12">
+	  <jaxws:binding>
+	     <soap:soapBinding version="1.2" mtomEnabled="false"/>
+      </jaxws:binding>
+      <jaxws:features>
+      	 <wsa:addressing xmlns:wsa="http://cxf.apache.org/ws/addressing"/>
+	  </jaxws:features>
+	</jaxws:endpoint>
+
+	<jaxws:endpoint 
+	  id="pdqSupplierV3" 
+	  implementor="#pdqSupplierServicev3" 
+	  address="/PDQSupplier_Port_Soap12">
+	  <jaxws:binding>
+	     <soap:soapBinding version="1.2" mtomEnabled="false"/>
+      </jaxws:binding>
+      <jaxws:features>
+      	 <wsa:addressing xmlns:wsa="http://cxf.apache.org/ws/addressing"/>
+	  </jaxws:features>
+	</jaxws:endpoint>
+    
+    <jaxws:client
+    	id="pixConsumerClient"
+    	serviceClass="org.openhie.openempi.openpixpdq.v3.PIXConsumerService">
+	   <jaxws:features>
+	   	  <wsa:addressing xmlns:wsa="http://cxf.apache.org/ws/addressing"/>
+	   </jaxws:features>
+	</jaxws:client>
+
+	<bean id="pixManagerServicev3"
+		class="org.openhie.openempi.openpixpdq.v3.impl.PixManagerServiceImpl"
+		init-method="init">
+    	<property name="configurationFilename" value="${openempi.home}/conf/IheActors.xml"></property>
+    	<property name="actorName" value="pixmanV3"></property>
+    </bean>
+	
+	<bean id="pdqSupplierServicev3"
+		class="org.openhie.openempi.openpixpdq.v3.impl.PdqSupplierServiceImpl"
+		init-method="init">
+    	<property name="configurationFilename" value="${openempi.home}/conf/IheActors.xml"></property>
+    	<property name="actorName" value="pdsupV3"></property>
+    </bean>
+    
+	<bean id="pixConsumerServicev3"
+		class="org.openhie.openempi.openpixpdq.v3.impl.PixConsumerServiceImpl"
+		init-method="init">
+    	<property name="configurationFilename" value="${openempi.home}/conf/IheActors.xml"></property>
+    	<property name="actorName" value="pixconV3"></property>
+    </bean>
+
+    <bean id="logInbound" class="org.openhie.openempi.openpixpdq.util.LoggingInInterceptor">
+        <property name="prettyLogging" value="true"/>
+    </bean>
+
+    <bean id="logOutbound" class="org.openhie.openempi.openpixpdq.util.LoggingOutInterceptor">
+        <property name="prettyLogging" value="true"/>
+    </bean>
+
+	<bean id="customLogOutbound" class="org.openhie.openempi.openpixpdq.util.CustomLoggingOutInterceptor">
+	</bean>
+	
+	<bean id="customHeaderFixer" class="org.openhie.openempi.openpixpdq.v3.impl.CustomHeaderFixerInterceptor">
+	</bean>
+	 
+    <cxf:bus>
+        <cxf:inInterceptors>
+            <ref bean="logInbound"/>
+        </cxf:inInterceptors>
+        <cxf:outInterceptors>
+            <ref bean="logOutbound"/>
+        </cxf:outInterceptors>
+        <cxf:outFaultInterceptors>
+            <ref bean="logOutbound"/>
+        </cxf:outFaultInterceptors>
+        <cxf:inFaultInterceptors>
+            <ref bean="logInbound"/>
+        </cxf:inFaultInterceptors>
+    </cxf:bus>    
+</beans>

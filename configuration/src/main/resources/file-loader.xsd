@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:fl="http://configuration.openempi.openhie.org/file-loader"
+	xmlns:mpi="http://configuration.openempi.openhie.org/mpiconfig"
+	targetNamespace="http://configuration.openempi.openhie.org/file-loader"
+	elementFormDefault="qualified">
+	
+	<xs:import namespace="http://configuration.openempi.openhie.org/mpiconfig" schemaLocation="mpi-config.xsd"/>
+	
+	<xs:complexType name="file-loader-type">
+		<xs:complexContent>
+			<xs:extension base="mpi:file-loader-configuration-type">
+				<xs:sequence>
+					<xs:element name="file-loader-config" type="fl:file-loader-config"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:element name="file-loader" type="fl:file-loader-type" substitutionGroup="mpi:file-loader-configuration"/>
+	<xs:complexType name="file-loader-config">
+		<xs:sequence>
+			<xs:element name="header-line-present" type="xs:boolean"/>
+			<xs:element name="data-fields" type="fl:data-fields"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="data-fields">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="data-field" type="fl:data-field"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="data-field">
+		<xs:sequence>
+			<xs:element name="target-field-name" type="xs:string"/>
+			<xs:element name="composition" type="fl:composition" minOccurs="0"/>
+			<xs:element name="substrings" type="fl:substrings" minOccurs="0"/>
+			<xs:element name="function" type="xs:string" minOccurs="0"/>
+			<xs:element name="format" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="composition">
+		<xs:sequence>
+			<xs:element name="index" type="xs:int"/>
+			<xs:element name="separator" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="substrings">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="substring" type="fl:substring"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="substring">
+		<xs:sequence>
+			<xs:element name="target-field-name" type="xs:string"/>
+			<xs:element name="begin-index" type="xs:int"/>
+			<xs:element name="end-index" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+
+</xs:schema>

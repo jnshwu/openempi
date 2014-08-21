@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd       
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	   default-lazy-init="true">
+
+    <!-- pixManagerAdapter:
+        The java adapter class that provides the patient data source for this Pix Manager (required).
+        This class must implement org.openhealthtools.openpixpdq.api.IPixManagerAdapter -->
+    <bean id="pixManagerAdapter" class="org.openhie.openempi.openpixpdqadapter.PixManagerAdapter" />  
+    
+    <!-- PdSupplierAdapter:
+      The java adapter class that provides the patient data source for this Patient Demographics Supplier 
+      This class must implement org.openhealthtools.openpixpdq.api.IPdSupplierAdapter -->
+    <bean id="pdSupplierAdapter" class="org.openhie.openempi.openpixpdqadapter.PdqSupplierAdapter" />  
+
+    <!-- MessageStoreLogger:
+      The java adapter class that provides the implementation of a message store logger 
+      This class must implement org.openhealthtools.openpixpdq.api.IMessageStoreLogger -->
+    <bean id="messageStoreLogger" class="org.openhie.openempi.openpixpdqadapter.MessageStoreLogger"/>
+    
+<!-- 
+	<bean id="pixEvent"	class="com.misys.hieportal.sysmon.JMXEventNotifier" />
+
+	<bean id="exporter"	class="org.springframework.jmx.export.MBeanExporter" lazy-init="false">
+		<property name="beans">
+			<map>
+				<entry key="bean:name=PIXMgrEvents" value-ref="pixEvent" />
+			</map>
+		</property>
+	</bean>
+	<bean id="rmiRegistry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean" />
+	<bean id="connectorServer" class="org.springframework.jmx.support.ConnectorServerFactoryBean" depends-on="rmiRegistry">
+		<property name="serviceUrl"	value="service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi" />
+	</bean>
+ -->
+</beans>    

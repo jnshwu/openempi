@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+  </component>
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="ejb" url="file://$PROJECT_DIR$/ejb" />
+    <file type="ejb" url="file://$PROJECT_DIR$/nhin-proxy" />
+    <file type="gwt" url="file://$PROJECT_DIR$/webapp-web" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/ear" />
+    <file type="web" url="file://$PROJECT_DIR$/nhin-adapter" />
+    <file type="web" url="file://$PROJECT_DIR$/web" />
+    <file type="web" url="file://$PROJECT_DIR$/webapp-web" />
+  </component>
+  <component name="IdProvider" IDEtalkID="51C2E840EC5D3A72CCE657C1867FBA57" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ear/pom.xml" />
+        <option value="$PROJECT_DIR$/ejb/pom.xml" />
+        <option value="$PROJECT_DIR$/web/pom.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+  <component name="SvnBranchConfigurationManager">
+    <option name="mySupportsUserInfoFilter" value="true" />
+  </component>
+</project>
+

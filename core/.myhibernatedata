@@ -1,0 +1,22 @@
+#
+#Fri Feb 27 13:07:05 EST 2009
+genBasicCompId=true
+sessionFactoryName=
+profile=
+daoSFId=
+version=3.2
+jndiPath=
+detectM2M=false
+reStrategyClass=
+springDaoFile=
+useJavaTypes=true
+keyGenerator=
+libInstallFolder=
+addLibs2Project=false
+genVersionTag=false
+sessionFactoryId=
+basePersistenceClass=
+reSettingsFile=
+configFile=/openempi-core/src/main/resources/hibernate.cfg.xml
+createConfigFile=false
+addLibs2Classpath=false

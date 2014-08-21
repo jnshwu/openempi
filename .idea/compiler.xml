@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AjcSettings">
+    <option name="ajcPath" value="C:\Users\jinshi.wu\.m2\repository\org\aspectj\aspectjtools\1.6.0\aspectjtools-1.6.0.jar" />
+    <option name="cmdLineParams" value="-showWeaveInfo" />
+    <option name="explicitAspectPath" value="true" />
+    <option name="delegateToJavac" value="true" />
+  </component>
+  <component name="CompilerConfiguration">
+    <option name="DEFAULT_COMPILER" value="ajc" />
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="openempi-basic-blocking" />
+        <module name="openempi-basic-blocking-hp" />
+        <module name="openempi-configuration" />
+        <module name="openempi-core" />
+        <module name="openempi-ear" />
+        <module name="openempi-ejb" />
+        <module name="openempi-exact-matching" />
+        <module name="openempi-file-loader" />
+        <module name="openempi-file-loader-hp" />
+        <module name="openempi-file-loader-map" />
+        <module name="openempi-nhin-adapter" />
+        <module name="openempi-nhin-proxy" />
+        <module name="openempi-openpixpdq-adapter" />
+        <module name="openempi-probabilistic-matching" />
+        <module name="openempi-restful-webservices" />
+        <module name="openempi-single-best-record" />
+        <module name="openempi-test-suite" />
+        <module name="openempi-webapp" />
+        <module name="openempi-webapp-server" />
+        <module name="openempi-webapp-web" />
+        <module name="openpixpdq" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="openempi" target="1.6" />
+      <module name="openempi-basic-blocking" target="1.6" />
+      <module name="openempi-basic-blocking-hp" target="1.6" />
+      <module name="openempi-configuration" target="1.6" />
+      <module name="openempi-core" target="1.6" />
+      <module name="openempi-ear" target="1.6" />
+      <module name="openempi-ejb" target="1.6" />
+      <module name="openempi-exact-matching" target="1.6" />
+      <module name="openempi-file-loader" target="1.6" />
+      <module name="openempi-file-loader-hp" target="1.6" />
+      <module name="openempi-file-loader-map" target="1.6" />
+      <module name="openempi-nhin-adapter" target="1.6" />
+      <module name="openempi-nhin-proxy" target="1.6" />
+      <module name="openempi-openpixpdq-adapter" target="1.6" />
+      <module name="openempi-probabilistic-matching" target="1.6" />
+      <module name="openempi-single-best-record" target="1.6" />
+      <module name="openempi-test-suite" target="1.6" />
+      <module name="openempi-webapp-server" target="1.6" />
+      <module name="openpixpdq" target="1.6" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
+

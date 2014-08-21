@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service  name="PIXManager">
+   <description> PIX Manager service</description>
+   <parameter name="ServiceClass">org.openhealthtools.openpixpdq.impl.v3.PIXManagerService</parameter>
+   <parameter name="useOriginalwsdl">true</parameter>
+   <parameter name="modifyUserWSDLPortAddress">true</parameter>
+    
+   <operation name="PIXManager_PRPA_IN201301UV02">
+      <messageReceiver class="org.openhealthtools.openpixpdq.impl.v3.PIXManagerServiceMessageReceiverInOut" />
+   </operation>
+
+   <operation name="PIXManager_PRPA_IN201302UV02">
+      <messageReceiver class="org.openhealthtools.openpixpdq.impl.v3.PIXManagerServiceMessageReceiverInOut"/>
+   </operation>
+
+   <operation name="PIXManager_PRPA_IN201304UV02">
+      <messageReceiver class="org.openhealthtools.openpixpdq.impl.v3.PIXManagerServiceMessageReceiverInOut"/>
+   </operation>
+
+   <operation name="PIXManager_PRPA_IN201309UV02">
+      <messageReceiver class="org.openhealthtools.openpixpdq.impl.v3.PIXManagerServiceMessageReceiverInOut"/>
+   </operation>
+
+</service>
+

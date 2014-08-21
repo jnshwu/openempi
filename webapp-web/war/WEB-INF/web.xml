@@ -1,0 +1,279 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd">
+<web-app>
+  <display-name>OpenEMPI Manager Web Application</display-name>
+<!-- 
+  <context-param> 
+          <param-name>contextConfigLocation</param-name>
+          <param-value>
+                classpath:net/bull/javamelody/monitoring-spring.xml
+          </param-value>
+  </context-param>
+ 
+  <filter>
+      <filter-name>monitoring</filter-name>
+      <filter-class>net.bull.javamelody.MonitoringFilter</filter-class>
+       <init-param>
+            <param-name>displayed-counters</param-name>
+            <param-value>http,sql,error,log,spring</param-value>
+        </init-param>
+  </filter>
+
+  <filter-mapping>
+      <filter-name>monitoring</filter-name>
+      <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <listener>
+       <listener-class>net.bull.javamelody.SessionListener</listener-class>
+  </listener>
+
+  <listener>
+       <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+ -->
+
+  <servlet>
+    <servlet-name>initializationService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.InitializationServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>reportDownloadService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.ReportDownloadServlet</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+    
+  <servlet>
+    <servlet-name>blockingDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.BlockingDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>configurationDataServiceImpl</servlet-name>
+    <servlet-class>org.openempi.webapp.server.ConfigurationDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>eventNotificationServiceImpl</servlet-name>
+    <servlet-class>org.openempi.webapp.server.EventNotificationServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>fileLoaderDataServiceImpl</servlet-name>
+    <servlet-class>org.openempi.webapp.server.FileLoaderDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>referenceDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.ReferenceDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>personDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.PersonDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>reportDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.ReportDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+
+  <servlet>
+    <servlet-name>profileDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.ProfileDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>auditEventDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.AuditEventDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+    
+  <servlet>
+    <servlet-name>userDataService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.UserDataServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>adminService</servlet-name>
+    <servlet-class>org.openempi.webapp.server.AdminServiceImpl</servlet-class>
+    <load-on-startup>3</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>fileUploadService</servlet-name>
+  	<servlet-class>org.openempi.webapp.server.FileUploadServlet</servlet-class>
+  	<init-param>
+  		<param-name>uploadDirectory</param-name>
+  		<param-value>fileRepository</param-value>
+  	</init-param>
+    <load-on-startup>15</load-on-startup>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>jersey-rest-servlet</servlet-name>
+  	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+  	<init-param>
+  		<param-name>com.sun.jersey.config.property.packages</param-name>
+  		<param-value>org.openempi.webservices.restful.resources</param-value>
+  	</init-param>
+  	<init-param>
+		<param-name>com.sun.jersey.config.feature.Trace</param-name>
+		<param-value>true</param-value>
+    </init-param>
+    <init-param>
+        <param-name>com.sun.jersey.spi.container.ResourceFilters</param-name>
+        <param-value>org.openempi.webservices.restful.resources.RestAuthFilterFactory</param-value>
+    </init-param>    
+    <load-on-startup>15</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>CXFServlet</servlet-name>
+    <display-name>CXF Servlet</display-name>
+    <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+    <init-param>
+        <param-name>config-location</param-name>
+        <param-value>/WEB-INF/applicationContext-module-pixpdqv3.xml</param-value>
+    </init-param>
+    <load-on-startup>16</load-on-startup> 
+  </servlet>
+  
+  <!--   
+  <servlet>
+    <servlet-name>logging</servlet-name>
+    <servlet-class>com.google.gwt.libideas.logging.server.RemoteLoggingServiceImpl</servlet-class>
+    <load-on-startup>11</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>jUnitHostImpl</servlet-name>
+    <servlet-class>com.google.gwt.junit.server.JUnitHostImpl</servlet-class>
+    <load-on-startup>13</load-on-startup>
+  </servlet>
+ -->
+    
+  <servlet-mapping>
+    <servlet-name>blockingDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/blockingDataService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>configurationDataServiceImpl</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/configurationDataService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>eventNotificationServiceImpl</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/eventNotificationService</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>fileLoaderDataServiceImpl</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/fileLoaderDataService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>referenceDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/referenceDataService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>personDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/personDataService</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>reportDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/reportDataService</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>profileDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/profileDataService</url-pattern>
+  </servlet-mapping>
+ 
+  <servlet-mapping>
+    <servlet-name>auditEventDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/auditEventDataService</url-pattern>
+  </servlet-mapping>
+   
+   <servlet-mapping>
+    <servlet-name>userDataService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/userDataService</url-pattern>
+  </servlet-mapping>
+   
+  <servlet-mapping>
+    <servlet-name>adminService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/adminService</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>reportDownloadService</servlet-name>
+    <url-pattern>/reportDownloadService</url-pattern>
+  </servlet-mapping>
+  
+<!-- 
+  <servlet-mapping>
+    <servlet-name>logging</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/logging</url-pattern>
+  </servlet-mapping>	
+  <servlet-mapping>
+    <servlet-name>jUnitHostImpl</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/junithost</url-pattern>
+  </servlet-mapping>
+   -->
+  <servlet-mapping>
+    <servlet-name>fileUploadService</servlet-name>
+    <url-pattern>/org.openempi.webapp.Application/upload</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>jersey-rest-servlet</servlet-name>
+    <url-pattern>/openempi-ws-rest/*</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>CXFServlet</servlet-name>
+    <url-pattern>/services/*</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+        <session-timeout>30</session-timeout>
+  </session-config>
+    
+  <welcome-file-list>
+	<welcome-file>Application.html</welcome-file>
+  </welcome-file-list>
+</web-app>

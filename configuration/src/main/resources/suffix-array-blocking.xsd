@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:sab="http://configuration.openempi.openhie.org/suffix-array-blocking"
+	xmlns:mpi="http://configuration.openempi.openhie.org/mpiconfig"
+	targetNamespace="http://configuration.openempi.openhie.org/suffix-array-blocking"
+	elementFormDefault="qualified">
+	
+	<xs:import namespace="http://configuration.openempi.openhie.org/mpiconfig" schemaLocation="mpi-config.xsd"/>
+	
+	<xs:element name="suffix-array-blocking" type="sab:suffix-array-blocking-type" substitutionGroup="mpi:blocking-configuration"/>
+	<xs:complexType name="suffix-array-blocking-type">
+		<xs:complexContent>
+			<xs:extension base="mpi:blocking-configuration-type">
+				<xs:sequence>
+					<xs:element name="minimum-suffix-length" type="xs:int" default="3"/>
+					<xs:element name="maximum-block-size" type="xs:int" default="20"/>
+					<xs:element name="blocking-rounds" type="sab:blocking-rounds"/>
+					<xs:element name="similarity-metric" type="sab:similarity-metric-type" default="Exact"/>
+					<xs:element name="threshold" type="xs:float" default="0.85"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="blocking-rounds">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="blocking-round" type="sab:blocking-round"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="blocking-round">
+		<xs:sequence>
+			<xs:element name="blocking-fields" type="sab:blocking-fields"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="blocking-fields">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="blocking-field" type="sab:blocking-field"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="blocking-field">
+		<xs:sequence>
+			<xs:element name="field-name" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+    <xs:simpleType name="similarity-metric-type">
+       <xs:restriction base="xs:string">
+          <xs:enumeration value="Exact"/>
+          <xs:enumeration value="Jaro"/>
+          <xs:enumeration value="JaroWinkler"/>
+          <xs:enumeration value="JaroWinklerV2"/>
+          <xs:enumeration value="Levenshtein"/>
+          <xs:enumeration value="NeedlemanWunsch"/>
+          <xs:enumeration value="SmithWaterman"/>
+          <xs:enumeration value="MongeElkan"/>
+          <xs:enumeration value="Gotoh"/>
+          <xs:enumeration value="GotohWindowedAffine"/>
+          <xs:enumeration value="Block"/>
+          <xs:enumeration value="Soundex"/>
+          <xs:enumeration value="Euclidean"/>
+          <xs:enumeration value="QGrams"/>
+          <xs:enumeration value="JaccardString"/>
+          <xs:enumeration value="Cosine"/>
+          <xs:enumeration value="DiceString"/>
+          <xs:enumeration value="Matching"/>
+          <xs:enumeration value="Overlap"/>
+       </xs:restriction>
+    </xs:simpleType>
+</xs:schema>

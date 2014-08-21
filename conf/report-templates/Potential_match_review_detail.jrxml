@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event_activity" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="74"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="START_DATE" class="java.lang.String"/>
+	<parameter name="END_DATE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<frame>
+					<reportElement mode="Opaque" x="2" y="2" width="553" height="24" forecolor="#B89F7D" backcolor="#9DB1B8"/>
+				</frame>
+				<staticText>
+					<reportElement x="2" y="4" width="290" height="22" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Potential Record Matches for the date range from: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="292" y="4" width="67" height="22" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{START_DATE}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="359" y="4" width="21" height="22" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ to: ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="380" y="4" width="106" height="22" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{END_DATE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="14"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="79" y="90" width="417" height="30"/>
+				<textElement>
+					<font size="24" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Potential Match Review Detail Report]]></text>
+			</staticText>
+			<image>
+				<reportElement mode="Transparent" x="0" y="0" width="162" height="53"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "/openempi-logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="213" splitType="Stretch">
+			<subreport>
+				<reportElement x="4" y="0" width="551" height="213"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/potential-match-review-detail/link-list/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "Potential_match_review_detail_records.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="22" width="555" height="13" forecolor="#D0B48E" backcolor="#FFFFFF"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="432" y="0" width="80" height="13" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="240" y="3" width="96" height="32"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "/sysnet_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

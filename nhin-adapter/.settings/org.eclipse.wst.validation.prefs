@@ -1,0 +1,10 @@
+DELEGATES_PREFERENCE=delegateValidatorList
+USER_BUILD_PREFERENCE=enabledBuildValidatorListorg.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.jst.j2ee.internal.web.validation.UIWarValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;
+USER_MANUAL_PREFERENCE=enabledManualValidatorListorg.eclipse.wst.common.componentcore.internal.ModuleCoreValidator;org.eclipse.jst.j2ee.internal.classpathdep.ClasspathDependencyValidator;org.eclipse.jst.j2ee.internal.web.validation.UIWarValidator;org.eclipse.wst.wsi.ui.internal.WSIMessageValidator;
+USER_PREFERENCE=overrideGlobalPreferencestruedisableAllValidationfalseversion1.2.104.v200911120201
+disabled=06target
+eclipse.preferences.version=1
+override=true
+suspend=false
+vals/org.eclipse.wst.xsd.core.xsd/global=FF02162org.eclipse.wst.xsd.core.internal.validation.eclipse.Validator
+vf.version=3

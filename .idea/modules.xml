@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/openempi.iml" filepath="$PROJECT_DIR$/openempi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basic-blocking/openempi-basic-blocking.iml" filepath="$PROJECT_DIR$/basic-blocking/openempi-basic-blocking.iml" />
+      <module fileurl="file://$PROJECT_DIR$/basic-blocking-hp/openempi-basic-blocking-hp.iml" filepath="$PROJECT_DIR$/basic-blocking-hp/openempi-basic-blocking-hp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/configuration/openempi-configuration.iml" filepath="$PROJECT_DIR$/configuration/openempi-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core/openempi-core.iml" filepath="$PROJECT_DIR$/core/openempi-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ear/openempi-ear.iml" filepath="$PROJECT_DIR$/ear/openempi-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ejb/openempi-ejb.iml" filepath="$PROJECT_DIR$/ejb/openempi-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exact-matching/openempi-exact-matching.iml" filepath="$PROJECT_DIR$/exact-matching/openempi-exact-matching.iml" />
+      <module fileurl="file://$PROJECT_DIR$/file-loader/openempi-file-loader.iml" filepath="$PROJECT_DIR$/file-loader/openempi-file-loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/file-loader-hp/openempi-file-loader-hp.iml" filepath="$PROJECT_DIR$/file-loader-hp/openempi-file-loader-hp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/file-loader-map/openempi-file-loader-map.iml" filepath="$PROJECT_DIR$/file-loader-map/openempi-file-loader-map.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nhin-adapter/openempi-nhin-adapter.iml" filepath="$PROJECT_DIR$/nhin-adapter/openempi-nhin-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/nhin-proxy/openempi-nhin-proxy.iml" filepath="$PROJECT_DIR$/nhin-proxy/openempi-nhin-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pixpdq-adapter/openempi-openpixpdq-adapter.iml" filepath="$PROJECT_DIR$/pixpdq-adapter/openempi-openpixpdq-adapter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/probabilistic-matching/openempi-probabilistic-matching.iml" filepath="$PROJECT_DIR$/probabilistic-matching/openempi-probabilistic-matching.iml" />
+      <module fileurl="file://$PROJECT_DIR$/restful-webservices/openempi-restful-webservices.iml" filepath="$PROJECT_DIR$/restful-webservices/openempi-restful-webservices.iml" />
+      <module fileurl="file://$PROJECT_DIR$/single-best-record/openempi-single-best-record.iml" filepath="$PROJECT_DIR$/single-best-record/openempi-single-best-record.iml" />
+      <module fileurl="file://$PROJECT_DIR$/test-suite/openempi-test-suite.iml" filepath="$PROJECT_DIR$/test-suite/openempi-test-suite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/openempi-webapp.iml" filepath="$PROJECT_DIR$/web/openempi-webapp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapp-server/openempi-webapp-server.iml" filepath="$PROJECT_DIR$/webapp-server/openempi-webapp-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webapp-web/openempi-webapp-web.iml" filepath="$PROJECT_DIR$/webapp-web/openempi-webapp-web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pixpdq/openpixpdq.iml" filepath="$PROJECT_DIR$/pixpdq/openpixpdq.iml" />
+    </modules>
+  </component>
+</project>
+

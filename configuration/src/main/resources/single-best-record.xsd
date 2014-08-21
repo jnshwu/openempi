@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:sbr="http://configuration.openempi.openhie.org/single-best-record"
+	xmlns:mpi="http://configuration.openempi.openhie.org/mpiconfig"
+	targetNamespace="http://configuration.openempi.openhie.org/single-best-record"
+	elementFormDefault="qualified">
+	
+	<xs:import namespace="http://configuration.openempi.openhie.org/mpiconfig" schemaLocation="mpi-config.xsd"/>
+	
+	<xs:element name="single-best-record" type="sbr:single-best-record-type" substitutionGroup="mpi:single-best-record"/>
+	<xs:complexType name="single-best-record-type">
+		<xs:complexContent>
+			<xs:extension base="mpi:single-best-record-type">
+				<xs:sequence minOccurs="1" maxOccurs="1">
+					<xs:element name="implementation-name" type="xs:string"/>
+					<xs:element name="implementation-description" type="xs:string"/>
+					<xs:element name="ruleset" type="sbr:ruleset"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	
+	<xs:complexType name="ruleset">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="rule" type="sbr:rule"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="rule">
+		<xs:sequence>
+			<xs:element name="field-name" type="xs:string"/>
+			<xs:element name="condition" type="sbr:condition"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:simpleType name="condition">
+    	<xs:restriction base="xs:string">
+        	<xs:enumeration value="not-null"/>
+        	<xs:enumeration value="null"/>
+        	<xs:enumeration value="maximum"/>
+        	<xs:enumeration value="minimum"/>
+    	</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

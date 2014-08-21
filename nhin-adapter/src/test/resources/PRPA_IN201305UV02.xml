@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<S:Envelope xmlns:S="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd"
+	xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:wsse11="http://docs.oasis-open.org/wss/oasis-wss-wssecurity-secext-1.1.xsd">
+	<S:Header>
+		<wsse:Security S:mustUnderstand="true">
+			<wsu:Timestamp
+				xmlns:ns15="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns14="http://schemas.xmlsoap.org/soap/envelope/" wsu:Id="_1">
+				<wsu:Created>2012-02-09T14:46:14Z</wsu:Created>
+				<wsu:Expires>2012-02-09T14:51:14Z</wsu:Expires>
+			</wsu:Timestamp>
+			<wsse11:SignatureConfirmation
+				xmlns:ns15="http://docs.oasis-open.org/ws-sx/ws-secureconversation/200512"
+				xmlns:ns14="http://schemas.xmlsoap.org/soap/envelope/" wsu:Id="_5002"
+				Value="XH5XYRnZH/jv7poycz3OMJxQeXhC33FfxLNq5q3mlNNPt9T+fDDo0TXchvueEPn/HKn3zjPsTIVlUeNAoPKumUstaAxKwi/nJ+uPtdqY25u7sGg2bjTsIhaqikaObJi4h5a0WPZWNnEJr/2THcGumVNvmVIXTQBMEOfjuAMVcNs=" />
+		</wsse:Security>
+	</S:Header>
+	<S:Body>
+		<PRPA_IN201306UV02 xmlns="urn:hl7-org:v3"
+			xmlns:ns2="urn:gov:hhs:fha:nhinc:common:nhinccommon" xmlns:ns3="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+			xmlns:ns4="urn:gov:hhs:fha:nhinc:common:patientcorrelationfacade"
+			ITSVersion="XML_1.0">
+			<id extension="60e64d82:1355909f992:-7fd5" root="1.1" />
+			<creationTime value="201229144614" />
+			<interactionId extension="PRPA_IN201306UV02" root="2.16.840.1.113883.1.6" />
+			<processingCode code="P" />
+			<processingModeCode code="I" />
+			<acceptAckCode code="NE" />
+			<receiver typeCode="RCV">
+				<device determinerCode="INSTANCE" classCode="DEV">
+					<id root="1.2.345.678.999" />
+					<asAgent classCode="AGNT">
+						<representedOrganization determinerCode="INSTANCE"
+							classCode="ORG">
+							<id root="2.16.840.1.113883.3.413" />
+						</representedOrganization>
+					</asAgent>
+				</device>
+			</receiver>
+			<sender typeCode="SND">
+				<device determinerCode="INSTANCE" classCode="DEV">
+					<id root="1.2.345.678.999" />
+					<asAgent classCode="AGNT">
+						<representedOrganization determinerCode="INSTANCE"
+							classCode="ORG">
+							<id root="2.16.840.1.113883.3.348.2.1" />
+						</representedOrganization>
+					</asAgent>
+				</device>
+			</sender>
+			<acknowledgement>
+				<typeCode code="AA" />
+				<targetMessage>
+					<id extension="423de711:1355851a18c:-7743" root="2.16.840.1.113883.3.413" />
+				</targetMessage>
+			</acknowledgement>
+			<controlActProcess moodCode="EVN" classCode="CACT">
+				<code codeSystem="2.16.840.1.113883.1.6" code="PRPA_TE201306UV02" />
+				<queryAck>
+					<queryId extension="423de711:1355851a18c:-7742" root="2.16.840.1.113883.3.413" />
+					<queryResponseCode code="OK" />
+				</queryAck>
+				<queryByParameter>
+					<queryId extension="423de711:1355851a18c:-7742" root="2.16.840.1.113883.3.413" />
+					<statusCode code="new" />
+					<parameterList>
+						<livingSubjectAdministrativeGender>
+							<value code="M" />
+							<semanticsText />
+						</livingSubjectAdministrativeGender>
+						<livingSubjectBirthTime>
+							<value value="19820704" />
+							<semanticsText />
+						</livingSubjectBirthTime>
+						<livingSubjectId>
+							<value extension="10709137" root="2.16.840.1.113883.3.413" />
+							<semanticsText />
+						</livingSubjectId>
+						<livingSubjectId>
+							<value extension="202455743" root="2.16.840.1.113883.4.1" />
+							<semanticsText />
+						</livingSubjectId>
+						<livingSubjectName>
+							<value>
+								<family partType="FAM">JONES</family>
+								<given partType="GIV">RANDALL</given>
+								<given partType="GIV">W</given>
+							</value>
+							<semanticsText />
+						</livingSubjectName>
+						<patientAddress>
+							<value use="HP">
+								<streetAddressLine>111 TEST STREET</streetAddressLine>
+								<city>JOHNSTOWN</city>
+								<state>PA</state>
+								<postalCode>15905</postalCode>
+							</value>
+							<semanticsText />
+						</patientAddress>
+						<patientTelecom>
+							<value value="tel:+1-814-255-5555" />
+							<semanticsText />
+						</patientTelecom>
+					</parameterList>
+				</queryByParameter>
+			</controlActProcess>
+		</PRPA_IN201306UV02>
+	</S:Body>
+</S:Envelope>

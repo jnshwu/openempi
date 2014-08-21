@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/basic-blocking" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/basic-blocking-hp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/configuration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/core" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ear" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ejb" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/exact-matching" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-loader" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-loader-hp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/file-loader-map" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nhin-adapter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/nhin-proxy" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pixpdq" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pixpdq-adapter" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/probabilistic-matching" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/restful-webservices" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/single-best-record" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/test-suite" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webapp-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/webapp-web" charset="UTF-8" />
+  </component>
+</project>
+

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="event_activity" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="template.type" value="columnar"/>
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="341"/>
+	<style name="Title" forecolor="#000000" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="START_DATE" class="java.lang.String"/>
+	<parameter name="END_DATE" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["./"]]></defaultValueExpression>
+	</parameter>
+	<group name="Group1">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/15)]]></groupExpression>
+		<groupHeader>
+			<band height="59">
+				<frame>
+					<reportElement mode="Opaque" x="-4" y="23" width="555" height="24" forecolor="#B89F7D" backcolor="#9DB1B8"/>
+					<textField>
+						<reportElement x="305" y="0" width="111" height="22" forecolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Times New Roman" size="13"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{START_DATE}]]></textFieldExpression>
+					</textField>
+					<staticText>
+						<reportElement x="417" y="0" width="21" height="22" forecolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Times New Roman" size="13" isBold="true"/>
+						</textElement>
+						<text><![CDATA[ to: ]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="4" y="0" width="299" height="22" forecolor="#FFFFFF"/>
+						<textElement>
+							<font fontName="Times New Roman" size="13" isBold="true"/>
+						</textElement>
+						<text><![CDATA[Summary of event activity information starting from:]]></text>
+					</staticText>
+				</frame>
+				<textField>
+					<reportElement x="437" y="23" width="106" height="22" forecolor="#FFFFFF"/>
+					<textElement>
+						<font fontName="Times New Roman" size="13"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{END_DATE}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupExpression><![CDATA[(int)($V{REPORT_COUNT}/5)]]></groupExpression>
+		<groupHeader>
+			<band height="16"/>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="177" y="90" width="244" height="30"/>
+				<textElement>
+					<font size="24" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Event Activity Report]]></text>
+			</staticText>
+			<image>
+				<reportElement mode="Transparent" x="0" y="0" width="162" height="53"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "/openempi-logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="260" splitType="Stretch">
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="20" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Total number of person records in the repository:]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="2" y="259" width="551" height="1"/>
+			</line>
+			<staticText>
+				<reportElement key="lblPersonRecordSummary" x="0" y="0" width="365" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Person Record Event Summary Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="40" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person records added:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="60" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person records updated:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="80" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person records deleted:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="100" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person records linked:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblPersonRecordSummary" x="0" y="141" width="365" height="20"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Person Identifier Event Summary Information]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="161" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Total number of person identifiers in the repository:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="181" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person identifier records added:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="lblTotalRecords" style="Column header" positionType="Float" x="15" y="201" width="277" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ Number of person identifier records deleted:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="292" y="20" width="1" height="100" forecolor="#C0C0C0"/>
+			</line>
+			<line>
+				<reportElement x="292" y="161" width="1" height="60" forecolor="#C0C0C0"/>
+			</line>
+			<subreport>
+				<reportElement x="293" y="20" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/person-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_total_person_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="60" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/update-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_update_person_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="40" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/add-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_add_person_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="80" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/delete-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_delete_person_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="100" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/link-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_link_person_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="161" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/identifier-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_total_identifiers_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="181" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/add-identifier-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_add_identifiers_records.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="293" y="201" width="219" height="20"/>
+				<dataSourceExpression><![CDATA[((net.sf.jasperreports.engine.data.JRXmlDataSource) $P{REPORT_DATA_SOURCE}).subDataSource("/event-activity/delete-identifier-count/row")]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "event_activity_delete_identifiers_records.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="35" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="22" width="555" height="13" forecolor="#D0B48E" backcolor="#FFFFFF"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="432" y="0" width="80" height="13" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="13" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+			<image>
+				<reportElement x="240" y="3" width="96" height="32"/>
+				<imageExpression><![CDATA[$P{SUBREPORT_DIR} + "/sysnet_logo.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

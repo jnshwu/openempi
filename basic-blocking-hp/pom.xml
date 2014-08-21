@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.openhie.openempi</groupId>
+		<artifactId>openempi</artifactId>
+		<version>2.2.8</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>openempi-basic-blocking-hp</artifactId>
+	<packaging>jar</packaging>
+	<name>OpenEMPI - Basic Blocking High Performance</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-configuration</artifactId>
+			<version>${release.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-core</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-core</artifactId>
+			<version>${release.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+<!-- 		
+        <dependency>
+            <groupId>org.terracotta.bigmemory</groupId>
+            <artifactId>bigmemory</artifactId>
+            <version>${bigmemory.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-ee</artifactId>
+            <version>${ehcache-ee.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.6.4</version>
+        </dependency>
+         -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+	</dependencies>
+</project>

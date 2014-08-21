@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="openempi-webapp-web:war">
+    <output-path>$PROJECT_DIR$/webapp-web/target</output-path>
+    <root id="archive" name="openempi-webapp-web-2.2.8.war">
+      <element id="artifact" artifact-name="openempi-webapp-web:war exploded" />
+    </root>
+  </artifact>
+</component>

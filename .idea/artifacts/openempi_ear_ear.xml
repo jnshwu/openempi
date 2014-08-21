@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="openempi-ear:ear">
+    <output-path>$PROJECT_DIR$/ear/target</output-path>
+    <root id="archive" name="openempi-${release.version}.ear">
+      <element id="artifact" artifact-name="openempi-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

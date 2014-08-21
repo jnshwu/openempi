@@ -1,0 +1,146 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<assembly>
+	<id>openempi</id>
+	<formats>
+		<format>zip</format>
+		<format>tar.gz</format>
+		<format>tar.bz2</format>
+	</formats>
+	<files>
+		<file>
+			<source>core/target/openempi-core-${release.version}.jar</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-core-${release.version}.jar</destName>
+			<fileMode>0644</fileMode>
+		</file>
+<!--
+		<file>
+			<source>ear/target/openempi-${release.version}.ear</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-${release.version}.ear</destName>
+			<fileMode>0644</fileMode>
+		</file>
+-->
+		<file>
+			<source>pixpdq-adapter/target/openempi-openpixpdq-adapter-${release.version}.jar</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-openpixpdq-adapter-${release.version}.jar</destName>
+			<fileMode>0644</fileMode>
+		</file>
+		<file>
+			<source>nhin-adapter/target/openempi-nhin-adapter-${release.version}.war</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-nhin-adapter-${release.version}.war</destName>
+			<fileMode>0644</fileMode>
+		</file>
+		<file>
+			<source>nhin-proxy/target/openempi-nhin-proxy-${release.version}.jar</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-nhin-proxy-${release.version}.jar</destName>
+			<fileMode>0644</fileMode>
+		</file>
+		<file>
+			<source>webapp-web/target/openempi-webapp-web-${release.version}.war</source>
+			<outputDirectory>/</outputDirectory>
+			<destName>openempi-webapp-web-${release.version}.war</destName>
+			<fileMode>0644</fileMode>
+		</file>
+		
+	</files>
+	<fileSets>
+		<fileSet>
+			<directory>../data</directory>
+			<outputDirectory>conf</outputDirectory>
+			<includes>
+				<include>*.sql</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+		<fileSet>
+			<directory>../data</directory>
+			<outputDirectory>conf</outputDirectory>
+			<includes>
+				<include>dataset_A_1000.csv</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+		<fileSet>
+			<directory>../data</directory>
+			<outputDirectory>conf</outputDirectory>
+			<includes>
+				<include>pixpdq_connectathon_patients.csv</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+		<fileSet>
+			<directory>..</directory>
+			<outputDirectory></outputDirectory>
+			<includes>
+				<include>LICENSE.txt</include>
+				<include>LICENSES.txt</include>
+				<include>NOTICE.txt</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>	
+		<fileSet>
+			<directory>conf</directory>
+			<outputDirectory>conf</outputDirectory>
+			<includes>
+				<include>*.*</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+		<fileSet>
+			<directory>nhin-adapter/src/test/resources</directory>
+			<outputDirectory>conf</outputDirectory>
+			<includes>
+				<include>OpenEmpiNhinAdapter-soapui-project.xml</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+		<fileSet>
+			<directory>..</directory>
+			<outputDirectory></outputDirectory>
+			<includes>
+				<include>openempi_env.sh</include>
+				<include>setEnv.bat</include>
+			</includes>
+			<useDefaultExcludes>true</useDefaultExcludes>
+			<fileMode>0644</fileMode>
+			<directoryMode>0755</directoryMode>
+		</fileSet>
+	</fileSets>
+</assembly>

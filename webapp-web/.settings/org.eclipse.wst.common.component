@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+  <wb-module deploy-name="openempi-webapp-web">
+        <dependent-module archiveName="openempi-webapp-server-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-webapp-server/openempi-webapp-server">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-core-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-core/openempi-core">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-basic-blocking-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-basic-blocking/openempi-basic-blocking">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-basic-blocking-hp-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-basic-blocking-hp/openempi-basic-blocking-hp">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-sorted-neighborhood-blocking-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-sorted-neighborhood-blocking/openempi-sorted-neighborhood-blocking">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-file-loader-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-file-loader/openempi-file-loader">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-file-loader-hp-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-file-loader-hp/openempi-file-loader-hp">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-file-loader-map-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-file-loader-map/openempi-file-loader-map">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-probabilistic-matching-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-probabilistic-matching/openempi-probabilistic-matching">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openpixpdq-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-openpixpdq/openempi-openpixpdq">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-openpixpdq-adapter-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-openpixpdq-adapter/openempi-openpixpdq-adapter">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-restful-webservices-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-restful-webservices/openempi-restful-webservices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-configuration-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-configuration/openempi-configuration">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-suffix-array-blocking-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-suffix-array-blocking/openempi-suffix-array-blocking">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-exact-matching-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-exact-matching/openempi-exact-matching">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="openempi-single-best-record-2.2.7-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/openempi-single-best-record/openempi-single-best-record">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    <property name="context-root" value="openempi-webapp-web"/>
+        <property name="java-output-path" value="/openempi-webapp-web/war/WEB-INF/classes"/>
+        <property name="component.exclusion.patterns" value=".gwt-tmp/**"/>
+    <wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/war" tag="defaultRootSource"/>
+  </wb-module>
+</project-modules>

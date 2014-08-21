@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1476387165">
+    <data-source source="LOCAL" name="PostgreSQL - openempi@localhost" uuid="8fea6c86-942d-422d-9b0b-9f779d6d7316">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/openempi</jdbc-url>
+      <user-name>openempi</user-name>
+      <user-password>dfc5dfdadfcfdfc4dfcfdfc7dfdadfc3</user-password>
+      <libraries>
+        <library>
+          <url>file://C:/Program Files/PostgreSQL/9.3/lib/postgresql-9.3-1102.jdbc41.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+

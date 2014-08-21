@@ -1,0 +1,66 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>        
+        <property name="hibernate.show_sql">false</property>
+        
+        <mapping class="org.openhie.openempi.model.AddressType"/>
+        <mapping class="org.openhie.openempi.model.AuditEventType"/>
+        <mapping class="org.openhie.openempi.model.AuditEvent"/>
+        <mapping class="org.openhie.openempi.model.DataProfileAttribute"/>
+        <mapping class="org.openhie.openempi.model.DataProfileAttributeValue"/>
+        <mapping class="org.openhie.openempi.model.EthnicGroup"/>
+        <mapping class="org.openhie.openempi.model.Gender"/>
+        <mapping class="org.openhie.openempi.model.IdentifierUpdateEntry"/>
+        <mapping class="org.openhie.openempi.model.IdentifierUpdateEvent"/>
+        <mapping class="org.openhie.openempi.model.IdentifierDomain"/>
+        <mapping class="org.openhie.openempi.model.IdentifierDomainAttribute"/>
+        <mapping class="org.openhie.openempi.model.Language"/>
+        <mapping class="org.openhie.openempi.model.LinkSource"/>
+        <mapping class="org.openhie.openempi.model.LoggedLink"/>
+        <mapping class="org.openhie.openempi.model.MessageLogEntry"/>
+        <mapping class="org.openhie.openempi.model.MessageType"/>
+        <mapping class="org.openhie.openempi.model.NameType"/>
+        <mapping class="org.openhie.openempi.model.Nationality"/>
+        <mapping class="org.openhie.openempi.model.Permission"/>
+        <mapping class="org.openhie.openempi.model.Person"/>
+        <mapping class="org.openhie.openempi.model.PersonIdentifier"/>
+        <mapping class="org.openhie.openempi.model.PersonLink"/>
+        <mapping class="org.openhie.openempi.model.PhoneType"/>
+        <mapping class="org.openhie.openempi.model.Race"/>
+        <mapping class="org.openhie.openempi.model.Religion"/>
+        <mapping class="org.openhie.openempi.model.Report"/>
+        <mapping class="org.openhie.openempi.model.ReportParameter"/>
+        <mapping class="org.openhie.openempi.model.ReportQuery"/>
+        <mapping class="org.openhie.openempi.model.ReportQueryParameter"/>
+        <mapping class="org.openhie.openempi.model.ReportRequestEntry"/>
+        <mapping class="org.openhie.openempi.model.ReviewRecordPair"/>
+        <mapping class="org.openhie.openempi.model.Role"/>
+        <mapping class="org.openhie.openempi.model.User"/>
+        <mapping class="org.openhie.openempi.model.UserFile"/>
+        <mapping class="org.openhie.openempi.model.UserSession"/>
+    </session-factory>
+</hibernate-configuration>

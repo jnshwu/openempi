@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:mpi="http://configuration.openempi.openhie.org/mpiconfig"
+	targetNamespace="http://configuration.openempi.openhie.org/mpiconfig"
+	elementFormDefault="qualified">
+	
+	<xs:element name="mpi-config">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="global-identifier" type="mpi:global-identifier" minOccurs="0"/>
+				<xs:element name="scheduled-tasks" type="mpi:scheduled-tasks" minOccurs="0"/>
+				<xs:element ref="mpi:file-loader-configuration" minOccurs="1" maxOccurs="1"/>
+				<xs:element name="custom-fields" type="mpi:custom-fields" minOccurs="0"/>
+				<xs:element ref="mpi:blocking-configuration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="mpi:matching-configuration" minOccurs="1" maxOccurs="1"/>
+				<xs:element ref="mpi:single-best-record" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="admin-configuration" type="mpi:admin-configuration" minOccurs="1"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	
+	<xs:complexType name="global-identifier">
+		<xs:sequence>
+			<xs:element name="assign-global-identifier" type="xs:boolean"/>
+			<xs:element name="identifier-domain-name" type="xs:string"/>
+			<xs:element name="identifier-domain-description" type="xs:string"/>
+			<xs:element name="namespace-identifier" type="xs:string"/>
+			<xs:element name="universal-identifier" type="xs:string"/>
+			<xs:element name="universal-identifier-type" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="scheduled-tasks">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="scheduled-task" type="mpi:scheduled-task"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="scheduled-task">
+		<xs:sequence>
+			<xs:element name="task-name" minOccurs="1" maxOccurs="1" type="xs:string"/>
+			<xs:element name="task-implementation" minOccurs="1" maxOccurs="1" type="xs:string"/>
+			<xs:element name="delay" minOccurs="0" maxOccurs="1" type="xs:long"/>
+			<xs:element name="initial-delay" minOccurs="0" maxOccurs="1" type="xs:long"/>
+ 			<xs:element name="period" minOccurs="0" maxOccurs="1" type="xs:long"/>
+		</xs:sequence>
+		<xs:attribute name="schedule-type" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="schedule"/>
+					<xs:enumeration value="schedule-at-fixed-rate"/>
+					<xs:enumeration value="schedule-with-fixed-delay"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="time-unit" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="days"/>
+					<xs:enumeration value="hours"/>
+					<xs:enumeration value="microseconds"/>
+					<xs:enumeration value="milliseconds"/>
+					<xs:enumeration value="minutes"/>
+					<xs:enumeration value="seconds"/>
+					<xs:enumeration value="nanoseconds"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+
+	<xs:complexType name="file-loader-configuration-type" abstract="true">
+	</xs:complexType>
+	<xs:element name="file-loader-configuration" abstract="true" type="mpi:file-loader-configuration-type"/>
+	
+	<xs:complexType name="blocking-configuration-type" abstract="true">
+	</xs:complexType>	
+	<xs:element name="blocking-configuration" abstract="true" type="mpi:blocking-configuration-type"/>
+	
+	<xs:complexType name="matching-configuration-type" abstract="true">
+	</xs:complexType>
+	<xs:element name="matching-configuration" abstract="true" type="mpi:matching-configuration-type"/>	
+	
+	<xs:complexType name="single-best-record-type" abstract="true">
+	</xs:complexType>
+	<xs:element name="single-best-record" abstract="true" type="mpi:single-best-record-type"/>	
+
+	<xs:complexType name="custom-fields">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="custom-field" type="mpi:custom-field"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="custom-field">
+		<xs:sequence>
+			<xs:element name="field-name" type="xs:string"/>
+			<xs:element name="source-field-name" type="xs:string"/>
+			<xs:element name="transformation-function" type="mpi:transformation-function"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="transformation-function">
+		<xs:sequence>
+			<xs:element name="function-name" type="xs:string" minOccurs="1"/>
+			<xs:element name="parameters" type="mpi:parameters" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="comparator-function">
+		<xs:sequence>
+			<xs:element name="function-name" type="xs:string" minOccurs="1"/>
+			<xs:element name="parameters" type="mpi:parameters" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="parameters">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="parameter" type="mpi:parameter"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="parameter">
+		<xs:sequence>
+			<xs:element name="name" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="admin-configuration">
+		<xs:sequence>
+			<xs:element name="file-repository-directory" type="xs:string"/>
+			<xs:element name="autostart-pixpdq" type="xs:boolean" default="false"/>
+			<xs:element name="update-notification-entries" type="mpi:update-notification-entries" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="update-notification-entries">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="update-notification-entry" type="mpi:update-notification-entry"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="update-notification-entry">
+		<xs:sequence>
+			<xs:element name="identifier-domain-name" type="xs:string"/>
+			<xs:element name="user" type="xs:string"/>
+			<xs:element name="time-to-live" type="xs:int" default="0"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

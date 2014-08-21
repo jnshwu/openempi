@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="openempi-nhin-proxy:ejb">
+    <output-path>$PROJECT_DIR$/nhin-proxy/target</output-path>
+    <root id="archive" name="openempi-nhin-proxy-2.2.8.jar">
+      <element id="artifact" artifact-name="openempi-nhin-proxy:ejb exploded" />
+    </root>
+  </artifact>
+</component>

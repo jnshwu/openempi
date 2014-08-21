@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="openempi-ejb:ejb">
+    <output-path>$PROJECT_DIR$/ejb/target</output-path>
+    <root id="archive" name="openempi-ejb-2.2.8.jar">
+      <element id="artifact" artifact-name="openempi-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

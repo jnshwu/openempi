@@ -1,0 +1,87 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:fl="http://configuration.openempi.openhie.org/fileloadermap"
+	targetNamespace="http://configuration.openempi.openhie.org/fileloadermap"
+	elementFormDefault="qualified">
+
+	<xsd:annotation>
+		<xsd:documentation xml:lang="en">
+			File loader mapping objects used to configure the import of data from a
+			file and map them into the schema
+			of OpenEMPI
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="file-loader-map">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="fields" type="fl:FieldsType" minOccurs="1"/>
+			</xsd:sequence>
+			<xsd:attribute name="delimeter" type="xsd:token" />
+			<xsd:attribute name="header-first-line" type="xsd:boolean"/>
+			<xsd:attribute name="training-data-extractor" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+
+	<xsd:complexType name="SubFieldsType">
+		<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="field" type="fl:FieldType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="FieldsType">
+		<xsd:sequence minOccurs="1" maxOccurs="unbounded">
+			<xsd:element name="field" type="fl:FieldType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	
+	<xsd:complexType name="FieldType">
+		<xsd:sequence>
+			<xsd:element name="column-index" minOccurs="1" type="xsd:integer"/>
+			<xsd:element name="field-name" minOccurs="0" type="xsd:token"/>
+			<xsd:element name="subfields" minOccurs="0" type="fl:SubFieldsType"/>
+		</xsd:sequence>
+		<xsd:attribute name="datatype" type="fl:datatype"/>
+		<xsd:attribute name="date-format-string" type="xsd:string"/>
+		<xsd:attribute name="delimeter" type="xsd:token"/>
+		<xsd:attribute name="enclosing-character" type="xsd:string"/>
+		<xsd:attribute name="is-cluster-id" type="xsd:boolean" default="false"/>
+		<xsd:attribute name="is-identifier" type="xsd:boolean" default="false"/>
+		<xsd:attribute name="is-ignored" type="xsd:boolean" default="false"/>
+		<xsd:attribute name="identifier-domain-name" type="xsd:string"/>
+		<xsd:attribute name="namespace-identifier" type="xsd:string"/>
+		<xsd:attribute name="one-to-many" type="xsd:boolean" default="false"/>
+		<xsd:attribute name="universal-identifier" type="xsd:string"/>
+		<xsd:attribute name="universal-identifier-type-code" type="xsd:string"/>
+	</xsd:complexType>
+	
+	<xsd:simpleType name="datatype">
+    	<xsd:restriction base="xsd:string">
+        	<xsd:enumeration value="String"/>
+        	<xsd:enumeration value="Date"/>
+        	<xsd:enumeration value="Integer"/>
+    	</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

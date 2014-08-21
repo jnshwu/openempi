@@ -1,0 +1,111 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN"
+    "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+    <field name="user.username">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.password">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.confirmPassword">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                (user.confirmPassword.equals(user.password))
+            </param> 
+            <message key="errors.twofields"/>
+        </field-validator>
+    </field>
+    <field name="user.passwordHint">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.firstName">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.lastName">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.email">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+        <field-validator type="email">
+            <message key="errors.email"/>
+        </field-validator>
+    </field>
+    <!-- Can't get regex validation to work -->
+    <!--field name="user.phoneNumber">
+        <field-validator type="fieldexpression">
+            <param name="expression">
+                (user.phoneNumber.matches('^\(?(\d{3})\)?[-| ]?(\d{3})[-| ]?(\d{4})$'))
+            </param>
+            <message key="errors.phone"/>
+        </field-validator>
+    </field-->
+    <field name="user.website">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.address.city">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.address.province">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+    <field name="user.address.postalCode">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+        <!-- Can't get regex validation to work -->
+        <!--field-validator type="fieldexpression">
+            <param name="expression">
+                user.postalCode.matches('^\d{5}\d*$'))
+            </param> 
+            <message key="errors.zip"/>
+        </field-validator-->
+    </field>
+    <field name="user.address.country">
+        <field-validator type="requiredstring">
+            <message key="errors.required"/>
+        </field-validator>
+    </field>
+</validators>

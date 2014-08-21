@@ -1,0 +1,90 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<soapenv:Envelope xmlns:soapenv="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:urn="urn:hl7-org:v3">
+	<soapenv:Header />
+	<soapenv:Body>
+		<urn:PRPA_IN201305UV02 ITSVersion="XML_1.0">
+			<urn:id root="1.2.840.114350.1.13.0.1.7.1.1" extension="35423" />
+			<urn:creationTime value="20100805150301" />
+			<urn:interactionId root="2.16.840.1.113883.1.6"
+				extension="PRPA_IN201305UV02" />
+			<urn:processingCode code="T" />
+			<urn:processingModeCode code="I" />
+			<urn:acceptAckCode code="AL" />
+			<urn:receiver typeCode="RCV">
+				<urn:device classCode="DEV" determinerCode="INSTANCE">
+					<urn:id root="1.2.840.114350.1.13.999.234" />
+					<urn:telecom value="http://servicelocation/QDQuery" />
+				</urn:device>
+			</urn:receiver>
+			<urn:sender typeCode="SND">
+				<urn:device classCode="DEV" determinerCode="INSTANCE">
+					<urn:id root="1.2.840.114350.1.13.999.567" />
+					<urn:asAgent classCode="AGNT">
+						<urn:representedOrganization
+							classCode="ORG" determinerCode="INSTANCE">
+							<urn:id root="1.1" />
+						</urn:representedOrganization>
+					</urn:asAgent>
+				</urn:device>
+			</urn:sender>
+			<urn:controlActProcess classCode="CACT"
+				moodCode="EVN">
+				<code code="PRPA_TE201305UV02" codeSystem="2.16.840.1.113883.1.6" />
+				<urn:authorOrPerformer typeCode="AUT">
+					<urn:assignedDevice>
+						<urn:id root="1.1.1" />
+					</urn:assignedDevice>
+				</urn:authorOrPerformer>
+				<urn:queryByParameter>
+					<urn:queryId root="1.1" extension="-abd3453dcd24wkkks545" />
+					<urn:statusCode code="new" />
+					<urn:responseModalityCode code="R" />
+					<urn:responsePriorityCode code="I" />
+					<urn:parameterList>
+						<urn:livingSubjectAdministrativeGender>
+							<urn:value code="M" />
+							<urn:semanticsText representation="TXT">LivingSubject.administrativeGender</urn:semanticsText>
+						</urn:livingSubjectAdministrativeGender>
+						<urn:livingSubjectBirthTime>
+							<urn:value value="19380224" />
+							<urn:semanticsText representation="TXT">LivingSubject.birthTime</urn:semanticsText>
+						</urn:livingSubjectBirthTime>
+						<urn:livingSubjectId>
+							<urn:value root="1.1.1" extension="1234" />
+							<urn:semanticsText>LivingSubject.id</urn:semanticsText>
+						</urn:livingSubjectId>
+						<urn:livingSubjectName>
+							<urn:value>
+								<urn:family partType="FAM">MOORE</urn:family>
+								<urn:given partType="GIV">CHIP</urn:given>
+							</urn:value>
+							<urn:semanticsText representation="TXT">LivingSubject.name</urn:semanticsText>
+						</urn:livingSubjectName>
+					</urn:parameterList>
+				</urn:queryByParameter>
+			</urn:controlActProcess>
+		</urn:PRPA_IN201305UV02>
+	</soapenv:Body>
+</soapenv:Envelope>

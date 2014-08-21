@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:pm="http://configuration.openempi.openhie.org/probabilistic-matching"
+	xmlns:mpi="http://configuration.openempi.openhie.org/mpiconfig"
+	targetNamespace="http://configuration.openempi.openhie.org/probabilistic-matching"
+	elementFormDefault="qualified">
+
+	<xs:import namespace="http://configuration.openempi.openhie.org/mpiconfig"
+		schemaLocation="mpi-config.xsd" />
+
+	<xs:element name="probabilistic-matching" type="pm:probabilistic-matching-type"
+		substitutionGroup="mpi:matching-configuration" />
+	<xs:complexType name="probabilistic-matching-type">
+		<xs:complexContent>
+			<xs:extension base="mpi:matching-configuration-type">
+				<xs:sequence>
+					<xs:element name="false-negative-probability" type="xs:float" minOccurs="0"/>
+					<xs:element name="false-positive-probability" type="xs:float" minOccurs="0"/>
+					<xs:element name="match-fields" type="pm:match-fields"/>
+					<xs:element name="config-file-directory" type="xs:string"/>
+					<xs:element name="logging-configuration" type="pm:logging-configuration" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="vector-classifications" type="pm:vector-classifications" minOccurs="0" maxOccurs="1"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="logging-configuration">
+		<xs:sequence>
+			<xs:element name="log-by-vectors" type="pm:log-by-vectors" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="log-by-weight" type="pm:log-by-weight" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="log-destination" type="pm:log-destination" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>	
+	<xs:complexType name="match-fields">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="match-field" type="pm:match-field" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="vector-classifications">
+		<xs:sequence minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="vector-classification" type="pm:vector-classification" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="log-by-vectors">
+		<xs:sequence>
+			<xs:element name="vector" type="xs:int" minOccurs="1" maxOccurs="unbounded"/>
+			<xs:element name="sample-size-percentage" type="xs:double" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="log-by-weight">
+		<xs:sequence>
+			<xs:element name="weight-lower-bound" type="xs:double" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="weight-upper-bound" type="xs:double" minOccurs="1" maxOccurs="1"/>
+			<xs:element name="sample-size-percentage" type="xs:double" minOccurs="1" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="match-field">
+		<xs:sequence>
+			<xs:element name="field-name" type="xs:string"/>
+			<xs:element name="agreement-probability" type="xs:float" minOccurs="0"/>
+			<xs:element name="disagreement-probability" type="xs:float" minOccurs="0"/>
+			<xs:element name="comparator-function" type="mpi:comparator-function" minOccurs="0"/>
+			<xs:element name="match-threshold" type="xs:float" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="vector-classification">
+		<xs:sequence>
+			<xs:element name="vector" type="xs:nonNegativeInteger"/>
+			<xs:element name="classification" type="pm:classification"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="classification">
+    	<xs:restriction base="xs:string">
+        	<xs:enumeration value="match"/>
+        	<xs:enumeration value="non-match"/>
+        	<xs:enumeration value="probable-match"/>
+    	</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="log-destination">
+    	<xs:restriction base="xs:string">
+        	<xs:enumeration value="log-to-file"/>
+        	<xs:enumeration value="log-to-db"/>
+    	</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

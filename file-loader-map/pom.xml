@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.openhie.openempi</groupId>
+		<artifactId>openempi</artifactId>
+		<version>2.2.8</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>openempi-file-loader-map</artifactId>
+	<packaging>jar</packaging>
+	<name>OpenEMPI - File Loader with Mapping</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-configuration</artifactId>
+			<version>${release.version}</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-core</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-core</artifactId>
+			<version>${release.version}</version>
+			<type>test-jar</type>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>${spring.version}</version>
+		</dependency>		
+	</dependencies>
+</project>

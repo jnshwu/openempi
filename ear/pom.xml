@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.openhie.openempi</groupId>
+		<artifactId>openempi</artifactId>
+		<version>2.2.7-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>openempi-ear</artifactId>
+	<packaging>ear</packaging>
+	<name>OpenEMPI - EAR</name>
+
+
+	<!-- Dependencies calculated by AppFuse when running full-source plugin -->
+	<dependencies>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-configuration</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-core</artifactId>
+			<version>${release.version}</version>
+			<type>jar</type>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-basic-blocking</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-basic-blocking-hp</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-exact-matching</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-probabilistic-matching</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-file-loader</artifactId>
+			<version>${release.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-ejb</artifactId>
+			<version>${release.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-nhin-adapter</artifactId>
+			<version>${release.version}</version>
+			<type>war</type>
+		</dependency>
+		<!-- <dependency> <groupId>org.openhie.openempi</groupId> <artifactId>openempi-webapp</artifactId> 
+			<version>${release.version}</version> <type>war</type> </dependency> -->
+		<dependency>
+			<groupId>org.openhie.openempi</groupId>
+			<artifactId>openempi-webapp-web</artifactId>
+			<version>${release.version}</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
+
+	<version>2.2.7-SNAPSHOT</version>
+	<build>
+		<finalName>openempi-${release.version}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<configuration>
+					<version>5</version>
+					<defaultJavaBundleDir>lib</defaultJavaBundleDir>
+					<modules>
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-core</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-basic-blocking</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-basic-blocking-hp</artifactId>
+						</jarModule>						
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-exact-matching</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-probabilistic-matching</artifactId>
+						</jarModule>
+						<jarModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-file-loader</artifactId>
+						</jarModule>
+						<ejbModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-ejb</artifactId>
+							<bundleDir>/</bundleDir>
+						</ejbModule>
+						<webModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-webapp-web</artifactId>
+							<bundleDir>/</bundleDir>
+							<contextRoot>openempi-admin</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>org.openhie.openempi</groupId>
+							<artifactId>openempi-nhin-adapter</artifactId>
+							<bundleDir>/</bundleDir>
+							<contextRoot>openempi-nhin-adapter</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>jboss-maven-plugin</artifactId>
+				<version>1.5.0</version>
+				<configuration>
+					<jbossHome>D:\servers\jboss-4.2.3</jbossHome>
+					<serverName>default</serverName>
+					<fileNames>
+						<fileName>${project.build.directory}/openempi-${release.version}.ear</fileName>
+					</fileNames>
+					<hostName>localhost</hostName>
+					<port>18080</port>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

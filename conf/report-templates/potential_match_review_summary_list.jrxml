@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="potential_match_review_summary_list" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[]]>
+	</queryString>
+	<field name="linkId" class="java.lang.String">
+		<fieldDescription><![CDATA[linkId]]></fieldDescription>
+	</field>
+	<field name="lGivenName" class="java.lang.String">
+		<fieldDescription><![CDATA[lGivenName]]></fieldDescription>
+	</field>
+	<field name="lFamilyName" class="java.lang.String">
+		<fieldDescription><![CDATA[lFamilyName]]></fieldDescription>
+	</field>
+	<field name="lDateBirth" class="java.lang.String">
+		<fieldDescription><![CDATA[lDateBirth]]></fieldDescription>
+	</field>
+	<field name="lSsn" class="java.lang.String">
+		<fieldDescription><![CDATA[lSsn]]></fieldDescription>
+	</field>
+	<field name="rGivenName" class="java.lang.String">
+		<fieldDescription><![CDATA[rGivenName]]></fieldDescription>
+	</field>
+	<field name="rFamilyName" class="java.lang.String">
+		<fieldDescription><![CDATA[rFamilyName]]></fieldDescription>
+	</field>
+	<field name="rDateBirth" class="java.lang.String">
+		<fieldDescription><![CDATA[rDateBirth]]></fieldDescription>
+	</field>
+	<field name="rSsn" class="java.lang.String">
+		<fieldDescription><![CDATA[rSsn]]></fieldDescription>
+	</field>
+	<field name="lGender" class="java.lang.String">
+		<fieldDescription><![CDATA[lGender]]></fieldDescription>
+	</field>
+	<field name="rGender" class="java.lang.String">
+		<fieldDescription><![CDATA[rGender]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="65" splitType="Stretch">
+			<staticText>
+				<reportElement x="136" y="25" width="61" height="15"/>
+				<textElement/>
+				<text><![CDATA[Left Record]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="25" width="62" height="15"/>
+				<textElement/>
+				<text><![CDATA[Right Record]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Given Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="81" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Family Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="302" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Given Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Family Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="136" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="412" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Date of Birth]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SSN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="235" y="44" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[SSN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="191" y="44" width="44" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="44" width="44" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Gender]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="64" width="555" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="335" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Potential Match Review Summary Information]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="31" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="4" width="26" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{linkId}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="26" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lGivenName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lFamilyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="136" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lDateBirth}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="509" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rSsn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rDateBirth}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="235" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lSsn}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="191" y="4" width="44" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lGender}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="357" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rFamilyName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="4" width="55" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rGivenName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="465" y="4" width="44" height="20"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rGender}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

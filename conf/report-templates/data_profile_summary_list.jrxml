@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="potential_match_review_summary_list" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="xPath">
+		<![CDATA[]]>
+	</queryString>
+	<field name="AttributeName" class="java.lang.String">
+		<fieldDescription><![CDATA[AttributeName]]></fieldDescription>
+	</field>
+	<field name="RowCount" class="java.lang.String">
+		<fieldDescription><![CDATA[RowCount]]></fieldDescription>
+	</field>
+	<field name="DistinctCount" class="java.lang.String">
+		<fieldDescription><![CDATA[DistinctCount]]></fieldDescription>
+	</field>
+	<field name="UniqueCount" class="java.lang.String">
+		<fieldDescription><![CDATA[UniqueCount]]></fieldDescription>
+	</field>
+	<field name="DuplicateCount" class="java.lang.String">
+		<fieldDescription><![CDATA[DuplicateCount]]></fieldDescription>
+	</field>
+	<field name="NullCount" class="java.lang.String">
+		<fieldDescription><![CDATA[NullCount]]></fieldDescription>
+	</field>
+	<field name="AverageLength" class="java.lang.String">
+		<fieldDescription><![CDATA[AverageLength]]></fieldDescription>
+	</field>
+	<field name="MinimumLength" class="java.lang.String">
+		<fieldDescription><![CDATA[MinimumLength]]></fieldDescription>
+	</field>
+	<field name="MaximumLength" class="java.lang.String">
+		<fieldDescription><![CDATA[MaximumLength]]></fieldDescription>
+	</field>
+	<field name="AverageValue" class="java.lang.String">
+		<fieldDescription><![CDATA[AverageValue]]></fieldDescription>
+	</field>
+	<field name="MinimumValue" class="java.lang.String">
+		<fieldDescription><![CDATA[MinimumValue]]></fieldDescription>
+	</field>
+	<field name="MaximumValue" class="java.lang.String">
+		<fieldDescription><![CDATA[MaximumValue]]></fieldDescription>
+	</field>
+	<field name="DataType" class="java.lang.String">
+		<fieldDescription><![CDATA[DataType]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="64" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="44" width="121" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Attribute Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="121" y="44" width="47" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Row Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="168" y="44" width="58" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Distinct Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="291" y="44" width="58" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Unique Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="226" y="44" width="65" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Duplicate Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="1" width="335" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Profile Summary Information Part 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="349" y="44" width="47" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Null Count]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="396" y="44" width="76" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Average Length]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="472" y="44" width="51" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Min Length]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="523" y="44" width="51" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Max Length]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="574" y="44" width="66" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Average Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="640" y="44" width="66" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Min Value]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="706" y="44" width="66" height="20" backcolor="#CCCCCC"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Max Value]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="121" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AttributeName}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="121" y="0" width="47" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RowCount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="168" y="0" width="58" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DistinctCount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="291" y="0" width="58" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{UniqueCount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="226" y="0" width="65" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DuplicateCount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="349" y="0" width="47" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NullCount}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="396" y="0" width="76" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AverageLength}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="472" y="0" width="51" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MinimumLength}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="523" y="0" width="51" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MaximumLength}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="574" y="0" width="66" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{DataType} != "2") ? $F{AverageValue} : new SimpleDateFormat("yyyy-MM-dd").format(new Date((long)Float.parseFloat($F{AverageValue})))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="640" y="0" width="66" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{DataType} != "2") ? $F{MinimumValue} : new SimpleDateFormat("yyyy-MM-dd").format(new Date((long)Float.parseFloat($F{MinimumValue})))]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="706" y="0" width="66" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($F{DataType} != "2") ? $F{MaximumValue} : new SimpleDateFormat("yyyy-MM-dd").format(new Date((long)Float.parseFloat($F{MaximumValue})))]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

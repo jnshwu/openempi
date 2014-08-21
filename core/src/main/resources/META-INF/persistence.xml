@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="ApplicationEntityManager"
+    	transaction-type="RESOURCE_LOCAL">
+    	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+    	<class>org.openhie.openempi.model.User</class>
+    	<class>org.openhie.openempi.model.Role</class>
+
+    	<!-- 
+    		Adding more <class>f.q.c.Name</class> elements here is not required.  
+    		The annotated classes will still be detected, as can be observed in the 
+    		following log output:
+    		
+    		INFO [main] Ejb3Configuration.scanForClasses(652) | found EJB3 Entity bean: com.mycompany.model.Person
+    		
+    		That being said, it will still work if you do add your <class> 
+    		declarations here for clarity, simply as a way to explicitly see all the 
+    		classes that are mapped as persistent entities.  Do whatever blows your 
+    		skirt up.
+    	-->
+
+    	<class>org.openhie.openempi.model.Person</class>
+    	<class>org.openhie.openempi.model.PersonIdentifier</class>
+    	<class>org.openhie.openempi.model.Race</class>
+    	<class>org.openhie.openempi.model.Language</class>
+    	<class>org.openhie.openempi.model.NameType</class>
+    	<class>org.openhie.openempi.model.EthnicGroup</class>
+    	<class>org.openhie.openempi.model.AddressType</class>
+    	<class>org.openhie.openempi.model.Gender</class>
+    	<class>org.openhie.openempi.model.Nationality</class>
+    	<class>org.openhie.openempi.model.IdentifierDomain</class>
+    	<class>org.openhie.openempi.model.Religion</class>
+    	<class>org.openhie.openempi.model.PersonLink</class>
+    </persistence-unit>
+
+</persistence>

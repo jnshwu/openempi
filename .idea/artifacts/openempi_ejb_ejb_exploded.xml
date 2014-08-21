@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="openempi-ejb:ejb exploded">
+    <output-path>$PROJECT_DIR$/ejb/target/openempi-ejb-2.2.8</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="openempi-ejb/ejb/EJB" />
+      <element id="module-output" name="openempi-ejb" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="data_profile_detail_list" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\openempi\\branches\\2.2.6-SNAPSHOT\\openempi\\conf\\report-templates\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="AttributeName" class="java.lang.String">
+		<fieldDescription><![CDATA[AttributeName]]></fieldDescription>
+	</field>
+	<field name="AttributeValue" class="java.lang.String">
+		<fieldDescription><![CDATA[AttributeValue]]></fieldDescription>
+	</field>
+	<field name="AttributeFrequency" class="java.lang.String">
+		<fieldDescription><![CDATA[AttributeFrequency]]></fieldDescription>
+	</field>
+	<group name="Attribute Name" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{AttributeName}]]></groupExpression>
+		<groupHeader>
+			<band height="51">
+				<line>
+					<reportElement x="0" y="50" width="555" height="1"/>
+				</line>
+				<staticText>
+					<reportElement x="21" y="9" width="106" height="20"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<text><![CDATA[Attribute Name]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="21" y="29" width="106" height="20"/>
+					<textElement>
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{AttributeName}+" :"]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="235" y="33" width="106" height="16"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Frequency]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="129" y="33" width="106" height="16"/>
+					<textElement>
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[Attribute Value]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="335" height="20"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Profile Detail Information]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="129" y="0" width="106" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AttributeValue}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="235" y="0" width="106" height="20"/>
+				<box>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AttributeFrequency}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="172" splitType="Stretch">
+			<bar3DChart>
+				<chart>
+					<reportElement x="26" y="0" width="494" height="172"/>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<dataset resetType="Column"/>
+					<categorySeries>
+						<seriesExpression><![CDATA[($F{AttributeValue} == null) ? " " : $F{AttributeValue}]]></seriesExpression>
+						<categoryExpression><![CDATA[($F{AttributeValue} == null) ? " " : $F{AttributeValue}]]></categoryExpression>
+						<valueExpression><![CDATA[new Integer(Integer.valueOf($F{AttributeFrequency}))]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot/>
+					<itemLabel/>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

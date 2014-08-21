@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="openempi-nhin-adapter:war">
+    <output-path>$PROJECT_DIR$/nhin-adapter/target</output-path>
+    <root id="archive" name="openempi-nhin-adapter-2.2.8.war">
+      <element id="artifact" artifact-name="openempi-nhin-adapter:war exploded" />
+    </root>
+  </artifact>
+</component>

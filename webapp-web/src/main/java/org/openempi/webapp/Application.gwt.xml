@@ -1,0 +1,112 @@
+<!--
+
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+-->
+<!-- Copyright (C) 2010 SYSNET International, Inc. <support@sysnetint.com> 
+	Licensed under the Apache License, Version 2.0 (the "License"); you may not 
+	use this file except in compliance with the License. You may obtain a copy 
+	of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required 
+	by applicable law or agreed to in writing, software distributed under the 
+	License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS 
+	OF ANY KIND, either express or implied. See the License for the specific 
+	language governing permissions and limitations under the License. -->
+<module>
+
+	<!-- Inherit the core Web Toolkit stuff. -->
+	<inherits name='com.google.gwt.user.User' />
+
+	<inherits name='org.openempi.webapp.resources.Resources' />
+
+	<!-- Inherit the server project, which defines a service servlet endpoint -->
+	<inherits name='org.openempi.webapp.server.ApplicationServices' />
+
+	<!-- For webservice calls -->
+	<inherits name="com.google.gwt.json.JSON" />
+	<inherits name="com.google.gwt.http.HTTP" />
+
+	<!-- inherit css based theme -->
+	<inherits name='com.google.gwt.user.theme.standard.Standard' />
+
+	<!-- inherit GXT chart library -->
+    <inherits name='com.extjs.gxt.charts.Chart'/>  
+    
+	<!-- For production, most teams prefer to set the default log level to `OFF` 
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-OFF" />
+	-->
+
+	<!-- For development, a default of `DEBUG` is recommended
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-DEBUG" />
+	-->
+
+	<!-- To compile at `DEBUG`, `WARN` and `OFF` log levels (with a 3x compile 
+		time cost)
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-OFF" />
+	<extend-property name="log_level" values="DEBUG,WARN"/>
+	-->
+
+	<!-- Default to `OFF`, but allow selection of a specific log level, say 
+		`INFO`, via the `log_level` URL parameter: http[s]://hostame:port/yourmodule/Yourmodule.html?log_level=INFO -->
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-OFF" />
+	<extend-property name="log_level" values="INFO" />
+
+	<collapse-all-properties />
+
+	<!-- Compile both `DEBUG` and `ERROR` log levels, with level selection via 
+		a `gwt:property` meta tag in your HTML page: <head> <title>....</title> <meta 
+		name="gwt:property" content="log_level=DEBUG"> </head>
+	<inherits name="com.allen_sauer.gwt.log.gwt-log-ERROR" />
+	<extend-property name="log_level" values="DEBUG"/>
+	-->
+
+	<!-- <inherits name='com.google.gwt.junit.JUnit' /> -->
+
+	<!-- Specify the app entry point class. -->
+	<entry-point class='org.openempi.webapp.client.MainApp' />
+
+	<!-- Specify the paths for translatable code -->
+	<source path='client' />
+
+	<!-- Specify the application specific style sheet. -->
+	<stylesheet src='Application.css' />
+
+	<servlet path="/adminService" class="org.openempi.webapp.server.AdminServiceImpl" />
+	<servlet path="/blockingDataService"
+		class="org.openempi.webapp.server.BlockingDataServiceImpl" />
+	<servlet path="/configurationDataService"
+		class="org.openempi.webapp.server.ConfigurationDataServiceImpl" />
+	<servlet path="/eventNotificationService"
+		class="org.openempi.webapp.server.EventNotificationServiceImpl" />
+	<servlet path="/fileLoaderDataService"
+		class="org.openempi.webapp.server.FileLoaderDataServiceImpl" />
+	<servlet path="/personDataService"
+		class="org.openempi.webapp.server.PersonDataServiceImpl" />
+	<servlet path="/reportDataService"
+		class="org.openempi.webapp.server.ReportDataServiceImpl" />
+	<servlet path="/userDataService"
+		class="org.openempi.webapp.server.UserDataServiceImpl" />
+	<servlet path="/referenceDataService"
+		class="org.openempi.webapp.server.ReferenceDataServiceImpl" />
+	<servlet path="/profileDataService"
+		class="org.openempi.webapp.server.ProfileDataServiceImpl" />
+	<servlet path="/auditEventDataService"
+		class="org.openempi.webapp.server.AuditEventDataServiceImpl" />
+		
+</module>

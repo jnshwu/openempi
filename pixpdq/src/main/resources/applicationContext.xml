@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	 Copyright (c) 2009-2010 Misys Open Source Solutions (MOSS) and others
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+     implied. See the License for the specific language governing
+     permissions and limitations under the License.
+
+     Contributors:
+       Misys Open Source Solutions - initial API and implementation
+-->
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:aop="http://www.springframework.org/schema/aop" 
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd       
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd
+	   http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd"
+	   default-lazy-init="true">
+
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+	</bean>
+	
+    <!-- pixManagerAdapter:
+        The java adapter class that provides the patient data source for this Pix Manager (required).
+        This class must implement org.openhealthtools.openpixpdq.api.IPixManagerAdapter -->
+    <bean id="pixManagerAdapter"
+    	class="org.openhie.openempi.openpixpdqadapter.PixManagerAdapter"/>
+
+    <!-- PdSupplierAdapter:
+      The java adapter class that provides the patient data source for this Patient Demographics Supplier 
+      This class must implement org.openhealthtools.openpixpdq.api.IPdSupplierAdapter -->
+    <bean id="pdSupplierAdapter"
+    	class="org.openhie.openempi.openpixpdqadapter.PdqSupplierAdapter"/>
+
+    <!-- MessageStoreLogger:
+      The java adapter class that provides the implementation of a message store logger 
+      This class must implement org.openhealthtools.openpixpdq.api.IMessageStoreLogger -->
+    <bean id="messageStoreLogger"
+    	class="org.openhie.openempi.openpixpdqadapter.MessageStoreLogger"/>
+<!-- 
+	<bean id="pixEvent"
+		class="com.misys.hieportal.sysmon.JMXEventNotifier" />
+
+	<bean id="exporter"
+		class="org.springframework.jmx.export.MBeanExporter"
+		lazy-init="false">
+		<property name="beans">
+			<map>
+				<entry key="bean:name=PIXMgrEvents" value-ref="pixEvent" />
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="rmiRegistry" class="org.springframework.remoting.rmi.RmiRegistryFactoryBean" />
+
+	<bean id="connectorServer" class="org.springframework.jmx.support.ConnectorServerFactoryBean" depends-on="rmiRegistry">
+		<property name="serviceUrl"	value="service:jmx:rmi:///jndi/rmi://localhost:1099/jmxrmi" />
+	</bean>
+	 -->
+</beans>    

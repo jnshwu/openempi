@@ -1,0 +1,36 @@
+<xb:config xmlns:pol="http://configuration.openempi.openhie.org/mpiconfig" 
+    xmlns:xb="http://www.bea.com/2002/09/xbean/config">
+
+    <!-- Use the "namespace" element to map a namespace to the Java package
+        name that should be generated. -->
+    <xb:namespace uri="http://configuration.openempi.openhie.org/mpiconfig">
+        <xb:package>org.openhie.openempi.configuration.xml</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/mpicomponent">
+            <xb:package>org.openhie.openempi.configuration.xml.mpicomponent</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/basic-blocking">
+            <xb:package>org.openhie.openempi.configuration.xml.basicblocking</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/basic-blocking-hp">
+            <xb:package>org.openhie.openempi.configuration.xml.basicblockinghp</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/sorted-neighborhood-blocking">
+            <xb:package>org.openhie.openempi.configuration.xml.sortedneighborhoodblocking</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/suffix-array-blocking">
+            <xb:package>org.openhie.openempi.configuration.xml.suffixarrayblocking</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/file-loader">
+        <xb:package>org.openhie.openempi.configuration.xml.fileloader</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/exact-matching">
+        <xb:package>org.openhie.openempi.configuration.xml.exactmatching</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/probabilistic-matching">
+        <xb:package>org.openhie.openempi.configuration.xml.probabilisticmatching</xb:package>
+    </xb:namespace>
+    <xb:namespace uri="http://configuration.openempi.openhie.org/single-best-record">
+        <xb:package>org.openhie.openempi.configuration.xml.singlebestrecord</xb:package>
+    </xb:namespace>    
+</xb:config>

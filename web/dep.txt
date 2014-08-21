@@ -1,0 +1,134 @@
+====
+
+    Copyright (C) 2002-2012 "SYSNET International, Inc."
+    support@sysnetint.com [http://www.sysnetint.com]
+
+    This file is part of OpenEMPI.
+
+    OpenEMPI is free software: you can redistribute it and/or modify
+    it under the terms of the GNU Affero General Public License as
+    published by the Free Software Foundation, either version 3 of the
+    License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU Affero General Public License for more details.
+
+    You should have received a copy of the GNU Affero General Public License
+    along with this program. If not, see <http://www.gnu.org/licenses/>.
+====
+
+[INFO] Scanning for projects...
+[INFO] Searching repository for plugin with prefix: 'dependency'.
+[INFO] ------------------------------------------------------------------------
+[INFO] Building OpenEMPI - Web (Struts 2)
+[INFO]    task-segment: [dependency:tree]
+[INFO] ------------------------------------------------------------------------
+[INFO] [dependency:tree]
+[INFO] org.openhie.openempi:openempi-webapp:war:1.0-SNAPSHOT
+[INFO] +- mysql:mysql-connector-java:jar:5.0.5:compile
+[INFO] +- org.openhie.openempi:openempi-core:jar:1.0-SNAPSHOT:compile
+[INFO] |  +- commons-beanutils:commons-beanutils:jar:1.7.0:compile
+[INFO] |  +- commons-collections:commons-collections:jar:3.2:compile
+[INFO] |  +- javax.mail:mail:jar:1.4:compile
+[INFO] |  |  \- javax.activation:activation:jar:1.1:compile
+[INFO] |  +- javax.persistence:persistence-api:jar:1.0:compile
+[INFO] |  +- net.sf.ehcache:ehcache:jar:1.4.1:compile
+[INFO] |  |  +- net.sf.jsr107cache:jsr107cache:jar:1.0:compile
+[INFO] |  |  \- backport-util-concurrent:backport-util-concurrent:jar:3.1:compile
+[INFO] |  +- org.aspectj:aspectjweaver:jar:1.6.0:compile
+[INFO] |  +- org.aspectj:aspectjrt:jar:1.6.0:compile
+[INFO] |  +- org.codehaus.xfire:xfire-java5:jar:1.2.6:compile
+[INFO] |  |  +- org.codehaus.xfire:xfire-aegis:jar:1.2.6:compile
+[INFO] |  |  |  \- net.java.dev.stax-utils:stax-utils:jar:20040917:compile
+[INFO] |  |  +- org.codehaus.xfire:xfire-annotations:jar:1.2.6:compile
+[INFO] |  |  +- xfire:xfire-jsr181-api:jar:1.0-M1:compile
+[INFO] |  |  \- org.codehaus.xfire:xfire-core:jar:1.2.6:compile
+[INFO] |  |     +- wsdl4j:wsdl4j:jar:1.6.1:compile
+[INFO] |  |     +- stax:stax-api:jar:1.0.1:compile
+[INFO] |  |     +- org.codehaus.woodstox:wstx-asl:jar:3.2.0:compile
+[INFO] |  |     +- jdom:jdom:jar:1.0:compile
+[INFO] |  |     \- commons-httpclient:commons-httpclient:jar:3.0:compile
+[INFO] |  +- org.codehaus.xfire:xfire-spring:jar:1.2.6:compile
+[INFO] |  |  +- org.apache.xbean:xbean-spring:jar:2.8:compile
+[INFO] |  |  \- org.codehaus.xfire:xfire-xmlbeans:jar:1.2.6:compile
+[INFO] |  |     \- xmlbeans:xbean:jar:2.2.0:compile
+[INFO] |  +- org.hibernate:hibernate:jar:3.2.6.ga:compile
+[INFO] |  |  +- javax.transaction:jta:jar:1.0.1B:compile
+[INFO] |  |  +- asm:asm-attrs:jar:1.5.3:compile
+[INFO] |  |  +- dom4j:dom4j:jar:1.6.1:compile
+[INFO] |  |  +- antlr:antlr:jar:2.7.6:compile
+[INFO] |  |  +- cglib:cglib:jar:2.1_3:compile
+[INFO] |  |  \- asm:asm:jar:1.5.3:compile
+[INFO] |  +- org.hibernate:hibernate-annotations:jar:3.3.0.ga:compile
+[INFO] |  +- org.hibernate:hibernate-commons-annotations:jar:3.3.0.ga:compile
+[INFO] |  +- org.springframework:spring-jdbc:jar:2.5.4:compile
+[INFO] |  |  \- org.springframework:spring-tx:jar:2.5.4:compile
+[INFO] |  +- org.springframework:spring-orm:jar:2.5.4:compile
+[INFO] |  +- org.springframework:spring-aspects:jar:2.5.4:compile
+[INFO] |  +- org.springframework:spring-context-support:jar:2.5.4:compile
+[INFO] |  \- velocity:velocity:jar:1.4:compile
+[INFO] |     \- velocity:velocity-dep:jar:1.4:runtime
+[INFO] +- commons-dbcp:commons-dbcp:jar:1.2.1:compile
+[INFO] |  \- commons-pool:commons-pool:jar:1.2:compile
+[INFO] +- commons-fileupload:commons-fileupload:jar:1.2.1:compile
+[INFO] +- displaytag:displaytag:jar:1.1.1:compile
+[INFO] |  +- com.lowagie:itext:jar:1.3:compile
+[INFO] |  +- org.slf4j:jcl104-over-slf4j:jar:1.4.2:compile
+[INFO] |  \- org.slf4j:slf4j-log4j12:jar:1.4.2:compile
+[INFO] |     \- org.slf4j:slf4j-api:jar:1.4.2:compile
+[INFO] +- javax.servlet:servlet-api:jar:2.4:provided (scope not updated to compile)
+[INFO] +- javax.servlet:jstl:jar:1.1.2:compile
+[INFO] +- javax.servlet:jsp-api:jar:2.0:provided
+[INFO] +- opensymphony:clickstream:jar:1.0.2:compile
+[INFO] +- opensymphony:oscache:jar:2.3:compile
+[INFO] +- opensymphony:sitemesh:jar:2.2.1:compile
+[INFO] +- org.apache.commons:commons-io:jar:1.3.2:compile
+[INFO] +- org.apache.struts:struts2-core:jar:2.0.11.1:compile
+[INFO] |  +- com.opensymphony:xwork:jar:2.0.4:compile
+[INFO] |  +- freemarker:freemarker:jar:2.3.8:compile
+[INFO] |  +- opensymphony:ognl:jar:2.6.11:compile
+[INFO] |  +- commons-logging:commons-logging:jar:1.0.4:compile
+[INFO] |  \- com.sun:tools:jar:1.5.0:system
+[INFO] +- org.apache.struts:struts2-codebehind-plugin:jar:2.0.11.1:compile
+[INFO] +- org.apache.struts:struts2-spring-plugin:jar:2.0.11.1:compile
+[INFO] +- org.directwebremoting:dwr:jar:2.0.1:compile
+[INFO] +- org.springframework:spring-aop:jar:2.5.4:compile
+[INFO] |  +- aopalliance:aopalliance:jar:1.0:compile
+[INFO] |  +- org.springframework:spring-beans:jar:2.5.4:compile
+[INFO] |  \- org.springframework:spring-core:jar:2.5.4:compile
+[INFO] +- org.springframework:spring-webmvc:jar:2.5.4:compile
+[INFO] |  +- org.springframework:spring-context:jar:2.5.4:compile
+[INFO] |  \- org.springframework:spring-web:jar:2.5.4:compile
+[INFO] +- org.springframework.security:spring-security-taglibs:jar:2.0.1:compile
+[INFO] |  +- org.springframework.security:spring-security-core:jar:2.0.1:compile
+[INFO] |  |  \- commons-codec:commons-codec:jar:1.3:compile
+[INFO] |  \- org.springframework.security:spring-security-acl:jar:2.0.1:compile
+[INFO] +- org.subethamail:subethasmtp-wiser:jar:1.2:test
+[INFO] |  \- org.subethamail:subethasmtp-smtp:jar:1.2:test
+[INFO] +- org.tuckey:urlrewritefilter:jar:3.0.4:compile
+[INFO] +- struts-menu:struts-menu:jar:2.4.3:compile
+[INFO] |  +- commons-digester:commons-digester:jar:1.7:compile
+[INFO] |  \- velocity-tools:velocity-tools-view:jar:1.0:compile
+[INFO] +- taglibs:standard:jar:1.1.2:compile
+[INFO] +- commons-lang:commons-lang:jar:2.3:compile
+[INFO] +- junit:junit:jar:4.4:compile
+[INFO] +- log4j:log4j:jar:1.2.15:compile
+[INFO] |  +- javax.jms:jms:jar:1.1:compile
+[INFO] |  +- com.sun.jdmk:jmxtools:jar:1.2.1:compile
+[INFO] |  \- com.sun.jmx:jmxri:jar:1.2.1:compile
+[INFO] +- org.jmock:jmock:jar:2.4.0:compile
+[INFO] |  +- org.hamcrest:hamcrest-core:jar:1.1:compile
+[INFO] |  \- org.hamcrest:hamcrest-library:jar:1.1:compile
+[INFO] +- org.jmock:jmock-junit4:jar:2.4.0:compile
+[INFO] |  \- junit:junit-dep:jar:4.4:compile
+[INFO] +- org.springframework:spring-test:jar:2.5.4:compile
+[INFO] \- org.springframework.security:spring-security-core-tiger:jar:2.0.1:compile
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 5 seconds
+[INFO] Finished at: Mon Feb 16 14:27:21 EST 2009
+[INFO] Final Memory: 16M/254M
+[INFO] ------------------------------------------------------------------------

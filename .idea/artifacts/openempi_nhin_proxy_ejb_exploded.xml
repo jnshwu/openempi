@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ejb" name="openempi-nhin-proxy:ejb exploded">
+    <output-path>$PROJECT_DIR$/nhin-proxy/target/openempi-nhin-proxy-2.2.8</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="openempi-nhin-proxy/ejb/EJB" />
+      <element id="module-output" name="openempi-nhin-proxy" />
+    </root>
+  </artifact>
+</component>
